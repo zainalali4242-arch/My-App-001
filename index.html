@@ -54,9 +54,7 @@ input,select{font-family:var(--font);outline:none;border:none}
 .bil{font-size:9px;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.04em}
 .biv{font-size:13px;font-weight:600;font-family:var(--mono);margin-top:1px}
 .biv.inc{color:#6EE7A0}.biv.exp{color:#FCA5A5}
-.total-aset-row{display:flex;justify-content:space-between;align-items:center;margin-top:8px;padding-top:8px;border-top:1px solid rgba(255,255,255,.15)}
-.total-aset-lbl{font-size:10px;color:rgba(255,255,255,.5)}
-.total-aset-val{font-size:12px;font-weight:600;font-family:var(--mono);color:rgba(255,255,255,.7)}
+
 
 /* ACC CHIPS */
 .acc-scroll{display:flex;gap:8px;padding:12px 14px;overflow-x:auto;scrollbar-width:none}
@@ -114,8 +112,11 @@ input,select{font-family:var(--font);outline:none;border:none}
 .modal-ov.open{display:flex}
 .modal{background:var(--white);border-radius:var(--rxl) var(--rxl) 0 0;padding:18px;width:100%;max-width:430px;max-height:90vh;overflow-y:auto;animation:su .22s ease}
 @keyframes su{from{transform:translateY(36px);opacity:0}to{transform:translateY(0);opacity:1}}
-.modal-handle{width:32px;height:4px;background:var(--gray-200);border-radius:2px;margin:0 auto 14px}
-.modal-title{font-size:15px;font-weight:700;color:var(--gray-900);margin-bottom:14px}
+.modal-handle{width:32px;height:4px;background:var(--gray-200);border-radius:2px;margin:0 auto 10px}
+.modal-topbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+.modal-title{font-size:15px;font-weight:700;color:var(--gray-900);margin:0}
+.modal-close{width:30px;height:30px;border-radius:50%;background:var(--gray-100);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:16px;color:var(--gray-500);flex-shrink:0}
+.modal-close:hover{background:var(--gray-200)}
 
 /* FORM */
 .fg{margin-bottom:12px}
@@ -401,17 +402,18 @@ svg.chart{width:100%;overflow:visible}
   <div class="page active" id="page-dashboard">
     <div style="padding:14px 14px 0">
       <div class="bal-card">
-        <div class="bal-lbl" id="bal-lbl">Saldo Harian</div>
+        <div class="bal-lbl">Saldo Harian</div>
         <div class="bal-amt" id="bal-total">Rp 0</div>
         <div class="bal-avail-row" id="bal-avail-wrap" style="display:none">Tersedia: <span id="bal-avail">Rp 0</span> <span style="font-size:10px">(setelah goals)</span></div>
-        <div class="bal-row">
+        <div class="bal-row" id="bal-group-row">
+          <div><div class="bil">👤 Pribadi</div><div class="biv inc" id="bal-pribadi">Rp 0</div></div>
+          <div><div class="bil">👨‍👩‍👧‍👦 Keluarga</div><div class="biv inc" id="bal-keluarga">Rp 0</div></div>
+        </div>
+        <div class="bal-row" style="margin-top:8px">
           <div><div class="bil">Pemasukan</div><div class="biv inc" id="bal-inc">Rp 0</div></div>
           <div><div class="bil">Pengeluaran</div><div class="biv exp" id="bal-exp">Rp 0</div></div>
         </div>
-        <div class="total-aset-row" id="total-aset-row" style="display:none">
-          <span class="total-aset-lbl">🏦 Total Semua Aset</span>
-          <span class="total-aset-val" id="total-aset-val">Rp 0</span>
-        </div>
+
       </div>
     </div>
     <div class="acc-group-section" id="acc-group-summary"></div>
@@ -612,7 +614,7 @@ svg.chart{width:100%;overflow:visible}
       </div>
     </div>
     <div style="padding:14px;text-align:center;color:var(--gray-400);font-size:11px;line-height:1.8">
-      Dompet App v6.0<br>Data tersimpan lokal di browser ini
+      Dompet App v6.1<br>Data tersimpan lokal di browser ini
     </div>
   </div>
 
@@ -641,7 +643,10 @@ svg.chart{width:100%;overflow:visible}
 <div class="modal-ov" id="m-add">
   <div class="modal">
     <div class="modal-handle"></div>
-    <div class="modal-title" id="m-add-title">Tambah Transaksi</div>
+    <div class="modal-topbar">
+      <div class="modal-title" id="m-add-title">Tambah Transaksi</div>
+      <button class="modal-close" onclick="closeM('m-add')">✕</button>
+    </div>
     <div class="type-tog">
       <button class="type-btn ae" id="btn-exp" onclick="setType('expense')">− Pengeluaran</button>
       <button class="type-btn" id="btn-inc" onclick="setType('income')">+ Pemasukan</button>
@@ -667,7 +672,10 @@ svg.chart{width:100%;overflow:visible}
 <div class="modal-ov" id="m-acc">
   <div class="modal">
     <div class="modal-handle"></div>
-    <div class="modal-title">Tambah Akun</div>
+    <div class="modal-topbar">
+      <div class="modal-title">Tambah Akun</div>
+      <button class="modal-close" onclick="closeM('m-acc')">✕</button>
+    </div>
     <div class="fg"><label class="fl">Nama Akun</label>
       <input class="fi" id="acc-name" type="text" placeholder="cth: BCA, Dana, Tunai"/></div>
     <div class="fg"><label class="fl">Jenis Akun</label>
@@ -710,7 +718,10 @@ svg.chart{width:100%;overflow:visible}
 <div class="modal-ov" id="m-goal">
   <div class="modal">
     <div class="modal-handle"></div>
-    <div class="modal-title">Tambah Goal</div>
+    <div class="modal-topbar">
+      <div class="modal-title">Tambah Goal</div>
+      <button class="modal-close" onclick="closeM('m-goal')">✕</button>
+    </div>
     <div class="fg"><label class="fl">Nama Goal</label>
       <input class="fi" id="goal-name" type="text" placeholder="cth: iPhone, Liburan Bali"/></div>
     <div class="fg"><label class="fl">Emoji</label>
@@ -736,7 +747,10 @@ svg.chart{width:100%;overflow:visible}
 <div class="modal-ov" id="m-alloc">
   <div class="modal">
     <div class="modal-handle"></div>
-    <div class="modal-title">Alokasikan Dana ke Goal</div>
+    <div class="modal-topbar">
+      <div class="modal-title">Alokasikan Dana ke Goal</div>
+      <button class="modal-close" onclick="closeM('m-alloc')">✕</button>
+    </div>
     <div id="alloc-goal-info" style="background:var(--gray-50);border-radius:var(--r);padding:12px;margin-bottom:14px"></div>
     <div class="fg"><label class="fl">Jumlah Alokasi</label>
       <input class="fi amt" id="alloc-amt" type="text" inputmode="numeric" placeholder="Rp 0" oninput="fmtAmt(this)"/></div>
@@ -750,7 +764,10 @@ svg.chart{width:100%;overflow:visible}
 <div class="modal-ov" id="m-debt">
   <div class="modal">
     <div class="modal-handle"></div>
-    <div class="modal-title">Tambah Hutang/Piutang</div>
+    <div class="modal-topbar">
+      <div class="modal-title">Tambah Hutang/Piutang</div>
+      <button class="modal-close" onclick="closeM('m-debt')">✕</button>
+    </div>
     <div class="type-tog" style="margin-bottom:14px">
       <button class="type-btn ae" id="btn-debt" onclick="setDebtType('debt')">💸 Hutang Saya</button>
       <button class="type-btn" id="btn-lend" onclick="setDebtType('lend')">🤲 Piutang Saya</button>
@@ -773,7 +790,10 @@ svg.chart{width:100%;overflow:visible}
 <div class="modal-ov" id="m-budget">
   <div class="modal">
     <div class="modal-handle"></div>
-    <div class="modal-title">Atur Budget Kategori</div>
+    <div class="modal-topbar">
+      <div class="modal-title">Atur Budget Kategori</div>
+      <button class="modal-close" onclick="closeM('m-budget')">✕</button>
+    </div>
     <div class="fg"><label class="fl">Kategori</label>
       <select class="fi fi-select" id="bgt-cat-sel"></select></div>
     <div class="fg"><label class="fl">Batas Anggaran</label>
@@ -786,7 +806,10 @@ svg.chart{width:100%;overflow:visible}
 <div class="modal-ov" id="m-cat">
   <div class="modal">
     <div class="modal-handle"></div>
-    <div class="modal-title" id="m-cat-title">Tambah Kategori</div>
+    <div class="modal-topbar">
+      <div class="modal-title" id="m-cat-title">Tambah Kategori</div>
+      <button class="modal-close" onclick="closeM('m-cat')">✕</button>
+    </div>
     <div class="cat-type-tog">
       <button class="cat-type-btn ae" id="cat-type-exp" onclick="setCatType('expense')">Pengeluaran</button>
       <button class="cat-type-btn" id="cat-type-inc" onclick="setCatType('income')">Pemasukan</button>
@@ -803,7 +826,13 @@ svg.chart{width:100%;overflow:visible}
 </div>
 
 <div class="modal-ov" id="m-detail">
-  <div class="modal"><div class="modal-handle"></div><div id="detail-body"></div></div>
+  <div class="modal">
+    <div class="modal-handle"></div>
+    <div style="display:flex;justify-content:flex-end;margin-bottom:8px">
+      <button class="modal-close" onclick="closeM('m-detail')">✕</button>
+    </div>
+    <div id="detail-body"></div>
+  </div>
 </div>
 
 <div class="modal-ov" id="m-confirm">
@@ -1034,13 +1063,21 @@ function renderDash(){
   const spendingBal=spendingAccs.reduce((a,ac)=>a+accBal(ac.id),0);
   const totalAsset=st.accs.reduce((a,ac)=>a+accBal(ac.id),0);
   const goalAlloc=totalGoalAlloc();
-  document.getElementById('bal-lbl').textContent=hasSaving?'Saldo Harian':'Total Saldo';
+  // Hitung saldo per grup
+  const pribadi=st.accs.filter(a=>a.isSpending!==false&&a.group==='pribadi');
+  const keluargaAccs=st.accs.filter(a=>a.isSpending!==false&&(a.group==='keluarga'||!a.group));
+  const balPribadi=pribadi.reduce((s,a)=>s+accBal(a.id),0);
+  const balKeluarga=keluargaAccs.reduce((s,a)=>s+accBal(a.id),0);
+
   document.getElementById('bal-total').textContent=fmtRp(spendingBal);
   document.getElementById('bal-inc').textContent=fmtRp(minc);
   document.getElementById('bal-exp').textContent=fmtRp(mexp);
-  const ar=document.getElementById('total-aset-row');
-  if(hasSaving){ar.style.display='flex';document.getElementById('total-aset-val').textContent=fmtRp(totalAsset);}
-  else ar.style.display='none';
+
+  // Tampilkan 2 total harian
+  const bpEl=document.getElementById('bal-pribadi');
+  const bkEl=document.getElementById('bal-keluarga');
+  if(bpEl)bpEl.textContent=fmtRp(balPribadi);
+  if(bkEl)bkEl.textContent=fmtRp(balKeluarga);
   const aw=document.getElementById('bal-avail-wrap');
   if(goalAlloc>0){aw.style.display='block';document.getElementById('bal-avail').textContent=fmtRp(spendingBal-goalAlloc);}
   else aw.style.display='none';
@@ -1287,8 +1324,10 @@ function openAccDetail(id){
       <input class="fi" id="acc-rename-inp" type="text" placeholder="Nama baru akun" style="margin-bottom:8px"/>
       <button class="btn-p" onclick="saveRenameAcc('${a.id}')">Simpan Nama</button>
     </div>
-    ${!hasTrx?`<button class="btn-s" style="margin-bottom:7px" onclick="toggleAccKind('${a.id}','${sv}')">
-      ${sv?'💼 Jadikan Akun Harian':'📒 Jadikan Akun Tabungan'}</button>`:''}
+    <button class="btn-s" style="margin-bottom:7px" onclick="toggleAccKind('${a.id}','${sv}')">
+      ${sv?'📒 Jadikan Akun Tabungan':'💼 Jadikan Akun Harian'}</button>
+    ${!sv?`<button class="btn-s" style="margin-bottom:7px" onclick="editAccGroup('${a.id}')">
+      👥 Ubah Kelompok: ${a.group==='pribadi'?'Dana Pribadi →  Dana Keluarga':'Dana Keluarga → Dana Pribadi'}</button>`:''}
     <button class="btn-s" onclick="toggleRenameAcc()">✏️ Ganti Nama Akun</button>
     <button class="btn-d" onclick="closeM('m-detail');confirmDelAcc('${a.id}')">🗑️ Hapus Akun</button>
     <button class="btn-s" onclick="closeM('m-detail')">Tutup</button>`;
@@ -1308,8 +1347,33 @@ function saveRenameAcc(id){
 function toggleAccKind(id,currentSv){
   const sv=currentSv==='true';const nm=sv?'Akun Harian':'Akun Tabungan';
   showConf(sv?'💼':'📒',`Ubah ke ${nm}?`,sv?'Akun ini akan masuk hitungan saldo harian.':'Akun ini tidak akan masuk hitungan saldo harian.',()=>{
-    const idx=st.accs.findIndex(x=>x.id===id);st.accs[idx].isSpending=sv;saveAll();renderAll();closeM('m-detail');showToast(`Diubah ke ${nm} ✓`);
+    const idx=st.accs.findIndex(x=>x.id===id);
+    st.accs[idx].isSpending=sv;
+    if(sv&&!st.accs[idx].group)st.accs[idx].group='keluarga';
+    if(!sv)st.accs[idx].group='tabungan';
+    saveAll();renderAll();closeM('m-detail');showToast(`Diubah ke ${nm} ✓`);
+    setTimeout(()=>openAccDetail(id),300);
   });
+}
+
+function editAccGroup(id){
+  const a=getAcc(id);if(!a)return;
+  const cur=a.group||'keluarga';
+  showConf('👥','Ubah Kelompok Dana?',
+    `Pilih kelompok untuk akun "${a.name}":`,
+    ()=>{
+      const idx=st.accs.findIndex(x=>x.id===id);
+      // Toggle antara pribadi dan keluarga
+      st.accs[idx].group=cur==='pribadi'?'keluarga':'pribadi';
+      saveAll();renderAll();closeM('m-detail');
+      showToast(`Kelompok diubah ke ${st.accs[idx].group==='pribadi'?'Dana Pribadi':'Dana Keluarga'} ✓`);
+      setTimeout(()=>openAccDetail(id),300);
+    });
+  // Override tombol konfirm
+  setTimeout(()=>{
+    document.getElementById('conf-ok').textContent=cur==='pribadi'?'👨‍👩‍👧‍👦 Jadikan Dana Keluarga':'👤 Jadikan Dana Pribadi';
+    document.getElementById('conf-txt').textContent=`Akun "${a.name}" sekarang di kelompok ${cur==='pribadi'?'Dana Pribadi':'Dana Keluarga"}. Ubah ke ${cur==='pribadi'?'Dana Keluarga':'Dana Pribadi"}?`;
+  },50);
 }
 function confirmDelAcc(id){
   const a=getAcc(id);
@@ -1575,8 +1639,14 @@ function confirmClearAll(){
 let budgetVM=new Date().getMonth(),budgetVY=new Date().getFullYear();
 function chBudgetMonth(d){budgetVM+=d;if(budgetVM<0){budgetVM=11;budgetVY--;}if(budgetVM>11){budgetVM=0;budgetVY++;}renderBudget();}
 function openBudgetModal(){
-  document.getElementById('bgt-cat-sel').innerHTML=CEXP.map(c=>`<option value="${c.id}">${c.em} ${c.nm}</option>`).join('');
-  document.getElementById('bgt-limit').value='';document.getElementById('bgt-limit').dataset.raw='';openM('m-budget');
+  // Gabungkan CEXP dengan kategori yang sudah punya transaksi bulan ini
+  const sel=document.getElementById('bgt-cat-sel');
+  sel.innerHTML=CEXP.map(c=>`<option value="${c.id}">${c.em} ${c.nm}</option>`).join('');
+  // Set nilai default ke budget yang sudah ada jika ada
+  const existing=st.budgets.find(b=>b.month===budgetVM&&b.year===budgetVY);
+  document.getElementById('bgt-limit').value='';
+  document.getElementById('bgt-limit').dataset.raw='';
+  openM('m-budget');
 }
 function saveBudget(){
   const catId=document.getElementById('bgt-cat-sel').value;
@@ -1602,7 +1672,7 @@ function renderBudget(){
   const el=document.getElementById('budget-list');
   if(!mb.length){el.innerHTML='<div class="empty"><div class="empty-ico">💰</div><div class="empty-txt">Belum ada budget.<br>Ketuk "Tambah" untuk atur anggaran.</div></div>';return;}
   el.innerHTML=mb.map(b=>{
-    const cat=CEXP.find(c=>c.id===b.catId)||{nm:'Lainnya',em:'📦',bg:'#F5F5F5'};
+    const cat=getCat('expense',b.catId)||CEXP.find(c=>c.id===b.catId)||{nm:'Lainnya',em:'📦',bg:'#F5F5F5'};
     const spent=sm[b.catId]||0;const pct=b.limit>0?Math.min(110,Math.round(spent/b.limit*100)):0;
     const bc=pct>=100?'bgt-bar-over':pct>=80?'bgt-bar-warn':'bgt-bar-ok';const sisa=b.limit-spent;
     return`<div class="bgt-item"><div class="bgt-head"><div class="bgt-cat"><div class="bgt-em" style="background:${cat.bg}">${cat.em}</div><div class="bgt-name">${cat.nm}</div></div>
@@ -1817,7 +1887,7 @@ function exportPDF(){
   <div class="section"><h2>Pengeluaran per Kategori</h2><table><thead><tr><th>Kategori</th><th style="text-align:right">Total</th><th style="text-align:right">%</th></tr></thead><tbody>${catRows||'<tr><td colspan="3" style="text-align:center;color:#999">Tidak ada</td></tr>'}</tbody></table></div>
   <div class="section"><h2>Tren 6 Bulan</h2><table><thead><tr><th>Bulan</th><th style="text-align:right">Pemasukan</th><th style="text-align:right">Pengeluaran</th><th style="text-align:right">Net</th></tr></thead><tbody>${trendRows.join('')}</tbody></table></div>
   <div class="section"><h2>Transaksi — ${bulan}</h2><table><thead><tr><th>Tanggal</th><th>Tipe</th><th>Kategori</th><th>Catatan</th><th style="text-align:right">Jumlah</th></tr></thead><tbody>${trxRows||'<tr><td colspan="5" style="text-align:center;color:#999">Tidak ada</td></tr>'}</tbody></table></div>
-  <div class="footer">Dompet App v6.0</div>
+  <div class="footer">Dompet App v6.1</div>
   <script>window.onload=function(){window.print()}<\/script></body></html>`;
   const blob=new Blob([html],{type:'text/html;charset=utf-8'});const url=URL.createObjectURL(blob);
   window.open(url,'_blank');setTimeout(()=>URL.revokeObjectURL(url),5000);showToast('Membuka jendela cetak...');
