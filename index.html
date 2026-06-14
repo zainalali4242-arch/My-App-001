@@ -314,6 +314,74 @@ svg.chart{width:100%;overflow:visible}
 .conf-ico{font-size:38px;margin-bottom:10px}
 .conf-title{font-size:15px;font-weight:700;color:var(--gray-900);margin-bottom:5px}
 .conf-txt{font-size:13px;color:var(--gray-500);line-height:1.6;margin-bottom:18px}
+
+/* GRUP AKUN */
+.acc-group-section{padding:10px 14px 0}
+.acc-group-title{font-size:10px;font-weight:700;color:var(--gray-400);text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px;display:flex;align-items:center;justify-content:space-between}
+.acc-group-card{background:var(--white);border:1px solid var(--gray-200);border-radius:var(--rl);padding:12px 14px;margin-bottom:8px;box-shadow:var(--sh)}
+.acc-group-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:4px}
+.acc-group-name{font-size:13px;font-weight:600;color:var(--gray-900)}
+.acc-group-bal{font-size:14px;font-weight:700;font-family:var(--mono);color:var(--blue-mid)}
+.acc-group-sub{font-size:11px;color:var(--gray-400)}
+.acc-group-card.keluarga .acc-group-bal{color:var(--green)}
+.acc-group-card.tabungan .acc-group-bal{color:var(--gray-500)}
+.group-toggle{display:flex;gap:6px;margin-bottom:12px}
+.group-btn{flex:1;padding:7px;border-radius:var(--r);font-size:11px;font-weight:700;border:1.5px solid var(--gray-200);background:var(--white);color:var(--gray-400);cursor:pointer;text-align:center}
+.group-btn.pribadi{border-color:var(--blue-mid);background:var(--blue-light);color:var(--blue-mid)}
+.group-btn.keluarga{border-color:var(--green);background:var(--green-light);color:var(--green)}
+.group-btn.tabungan{border-color:var(--gray-400);background:var(--gray-100);color:var(--gray-500)}
+
+/* KALENDER */
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;padding:10px 14px}
+.cal-header{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;padding:8px 14px 4px}
+.cal-day-name{font-size:10px;font-weight:700;color:var(--gray-400);text-align:center;padding:4px 0}
+.cal-cell{border-radius:var(--rsm);padding:4px 2px;min-height:54px;cursor:pointer;border:1px solid transparent;transition:border-color .15s;position:relative}
+.cal-cell:hover{border-color:var(--gray-200)}
+.cal-cell.today{border-color:var(--blue-mid);background:var(--blue-light)}
+.cal-cell.has-data{cursor:pointer}
+.cal-cell.other-month{opacity:.35}
+.cal-date{font-size:11px;font-weight:600;color:var(--gray-700);text-align:center;margin-bottom:2px}
+.cal-cell.today .cal-date{color:var(--blue-mid)}
+.cal-exp{font-size:9px;font-weight:700;color:var(--red);text-align:center;line-height:1.2}
+.cal-inc{font-size:9px;font-weight:700;color:var(--green);text-align:center;line-height:1.2}
+.cal-dot{width:4px;height:4px;border-radius:50%;background:var(--blue-mid);margin:2px auto 0}
+
+/* DROPDOWN AKUN */
+.acc-dropdown{width:100%;background:var(--gray-100);border:1.5px solid transparent;border-radius:var(--r);padding:10px 13px;font-size:14px;color:var(--gray-900);transition:border-color .15s;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%239199A8' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 13px center;padding-right:32px;cursor:pointer;font-family:var(--font)}
+.acc-dropdown:focus{background-color:var(--white);border-color:var(--blue-mid)}
+
+/* DRILL DOWN KATEGORI */
+.cat-drilldown{background:var(--white);border-radius:var(--rl);border:1px solid var(--gray-200);margin-bottom:10px;overflow:hidden}
+.cat-drill-header{display:flex;align-items:center;gap:10px;padding:12px 14px;cursor:pointer;transition:background .12s}
+.cat-drill-header:hover{background:var(--gray-50)}
+.cat-drill-ico{width:32px;height:32px;border-radius:var(--r);display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0}
+.cat-drill-name{flex:1;font-size:13px;font-weight:600;color:var(--gray-900)}
+.cat-drill-info{text-align:right}
+.cat-drill-amt{font-size:13px;font-weight:700;font-family:var(--mono);color:var(--red)}
+.cat-drill-pct{font-size:10px;color:var(--gray-400)}
+.cat-drill-bar{height:3px;background:var(--gray-200);margin:0 14px}
+.cat-drill-fill{height:100%;background:var(--blue-mid);border-radius:2px}
+.cat-drill-body{display:none;border-top:1px solid var(--gray-100)}
+.cat-drill-body.open{display:block}
+.cat-drill-trx{display:flex;align-items:center;gap:10px;padding:9px 14px;border-bottom:1px solid var(--gray-100);font-size:12px}
+.cat-drill-trx:last-child{border-bottom:none}
+.cat-drill-trx-date{color:var(--gray-400);width:72px;flex-shrink:0}
+.cat-drill-trx-note{flex:1;color:var(--gray-700);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.cat-drill-trx-amt{font-family:var(--mono);font-weight:600;color:var(--red);flex-shrink:0}
+.cat-drill-summary{padding:8px 14px;background:var(--gray-50);font-size:11px;color:var(--gray-500);display:flex;gap:16px}
+.cat-drill-chevron{font-size:12px;color:var(--gray-400);transition:transform .2s}
+.cat-drill-chevron.open{transform:rotate(180deg)}
+
+/* RIWAYAT AKUN */
+.acc-trx-row{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid var(--gray-100);font-size:12px}
+.acc-trx-row:last-child{border-bottom:none}
+.acc-trx-date{color:var(--gray-400);width:72px;flex-shrink:0}
+.acc-trx-info{flex:1;min-width:0}
+.acc-trx-name{font-size:13px;font-weight:600;color:var(--gray-900);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.acc-trx-cat{font-size:10px;color:var(--gray-400)}
+.acc-trx-amt{font-family:var(--mono);font-weight:700;flex-shrink:0;font-size:12px}
+.acc-trx-saldo{font-size:10px;color:var(--gray-400);text-align:right}
+
 </style>
 </head>
 <body>
@@ -346,6 +414,7 @@ svg.chart{width:100%;overflow:visible}
         </div>
       </div>
     </div>
+    <div class="acc-group-section" id="acc-group-summary"></div>
     <div class="acc-scroll" id="acc-chips"></div>
     <div class="month-nav">
       <button class="month-btn" onclick="chMonth(-1)">&#8249;</button>
@@ -372,6 +441,21 @@ svg.chart{width:100%;overflow:visible}
       <div class="fchip" onclick="setFilter('transfer',this)">Transfer</div>
     </div>
     <div id="hist-list"></div>
+  </div>
+
+  <!-- KALENDER -->
+  <div class="page" id="page-kalender">
+    <div style="display:flex;align-items:center;padding:14px 14px 0">
+      <div style="font-size:17px;font-weight:700;flex:1">Kalender</div>
+    </div>
+    <div class="month-nav" style="margin-top:8px">
+      <button class="month-btn" onclick="chCalMonth(-1)">&#8249;</button>
+      <div class="month-lbl" id="cal-month-lbl">Juni 2026</div>
+      <button class="month-btn" onclick="chCalMonth(1)">&#8250;</button>
+    </div>
+    <div class="cal-header" id="cal-header"></div>
+    <div class="cal-grid" id="cal-grid"></div>
+    <div id="cal-detail" style="padding:0 14px 14px"></div>
   </div>
 
   <!-- BUDGET -->
@@ -528,7 +612,7 @@ svg.chart{width:100%;overflow:visible}
       </div>
     </div>
     <div style="padding:14px;text-align:center;color:var(--gray-400);font-size:11px;line-height:1.8">
-      Dompet App v5.1 — PWA Ready<br>Data tersimpan lokal di browser ini
+      Dompet App v6.0<br>Data tersimpan lokal di browser ini
     </div>
   </div>
 
@@ -537,8 +621,8 @@ svg.chart{width:100%;overflow:visible}
     <div class="nav-item active" id="nav-dashboard" onclick="showPage('dashboard')">
       <div class="nav-ico">🏠</div><div class="nav-lbl">Beranda</div>
     </div>
-    <div class="nav-item" id="nav-budget" onclick="showPage('budget')">
-      <div class="nav-ico">💰</div><div class="nav-lbl">Budget</div>
+    <div class="nav-item" id="nav-kalender" onclick="showPage('kalender')">
+      <div class="nav-ico">📅</div><div class="nav-lbl">Kalender</div>
     </div>
     <div class="nav-item" id="nav-goals" onclick="showPage('goals')">
       <div class="nav-ico">🎯</div><div class="nav-lbl">Goals</div>
@@ -568,9 +652,9 @@ svg.chart{width:100%;overflow:visible}
     <div id="cat-section" class="fg"><label class="fl">Kategori</label>
       <div class="cat-grid" id="cat-grid"></div></div>
     <div id="acc-from-section" class="fg"><label class="fl" id="acc-from-lbl">Akun</label>
-      <div class="acc-select-grid" id="acc-from-grid"></div></div>
+      <select class="acc-dropdown" id="acc-from-sel" onchange="st.selAccFrom=this.value"></select></div>
     <div id="acc-to-section" class="fg" style="display:none"><label class="fl">Ke Akun</label>
-      <div class="acc-select-grid" id="acc-to-grid"></div></div>
+      <select class="acc-dropdown" id="acc-to-sel" onchange="st.selAccTo=this.value"></select></div>
     <div class="fg"><label class="fl">Catatan</label>
       <input class="fi" id="inp-note" type="text" placeholder="Opsional"/></div>
     <div class="fg"><label class="fl">Tanggal</label>
@@ -591,13 +675,19 @@ svg.chart{width:100%;overflow:visible}
         <div class="acc-type-card sel-spending" id="acc-kind-spending" onclick="setAccKind('spending')">
           <div class="acc-type-card-ico">💼</div>
           <div class="acc-type-card-name">Akun Harian</div>
-          <div class="acc-type-card-desc">Untuk transaksi sehari-hari</div>
+          <div class="acc-type-card-desc">Masuk saldo utama</div>
         </div>
         <div class="acc-type-card" id="acc-kind-saving" onclick="setAccKind('saving')">
           <div class="acc-type-card-ico">📒</div>
           <div class="acc-type-card-name">Akun Tabungan</div>
           <div class="acc-type-card-desc">Tidak masuk saldo harian</div>
         </div>
+      </div>
+    </div>
+    <div class="fg" id="acc-group-section"><label class="fl">Kelompok Dana</label>
+      <div class="group-toggle">
+        <div class="group-btn pribadi" id="grp-pribadi" onclick="setAccGroup('pribadi')">👤 Dana Pribadi</div>
+        <div class="group-btn" id="grp-keluarga" onclick="setAccGroup('keluarga')">👨‍👩‍👧‍👦 Dana Keluarga</div>
       </div>
     </div>
     <div class="fg"><label class="fl">Sub-Tipe</label>
@@ -651,7 +741,7 @@ svg.chart{width:100%;overflow:visible}
     <div class="fg"><label class="fl">Jumlah Alokasi</label>
       <input class="fi amt" id="alloc-amt" type="text" inputmode="numeric" placeholder="Rp 0" oninput="fmtAmt(this)"/></div>
     <div class="fg"><label class="fl">Dari Akun</label>
-      <div class="acc-select-grid" id="alloc-acc-grid"></div></div>
+      <select class="acc-dropdown" id="alloc-acc-sel" onchange="st.selAllocAcc=this.value"></select></div>
     <button class="btn-p" onclick="saveAlloc()">Alokasikan</button>
     <button class="btn-s" onclick="closeM('m-alloc')">Batal</button>
   </div>
@@ -919,12 +1009,13 @@ function showPage(p){
   if(p==='budget')renderBudget();
   if(p==='laporan')renderLaporan();
   if(p==='kategori')renderCatManage();
+  if(p==='kalender')renderKalender();
 }
 function fabAction(){
   if(st.activePage==='goals')openGoalModal();
   else if(st.activePage==='debts')openDebtModal();
   else if(st.activePage==='budget')openBudgetModal();
-  else if(st.activePage==='laporan')return;
+  else if(st.activePage==='laporan'||st.activePage==='kalender')return;
   else openAdd();
 }
 
@@ -953,17 +1044,44 @@ function renderDash(){
   const aw=document.getElementById('bal-avail-wrap');
   if(goalAlloc>0){aw.style.display='block';document.getElementById('bal-avail').textContent=fmtRp(spendingBal-goalAlloc);}
   else aw.style.display='none';
+  // Ringkasan per grup
+  const grpSection=document.getElementById('acc-group-summary');
+  if(grpSection){
+    const pribadi=st.accs.filter(a=>a.isSpending!==false&&(a.group==='pribadi'||(!a.group&&false)));
+    const keluarga=st.accs.filter(a=>a.isSpending!==false&&(a.group==='keluarga'||!a.group));
+    const tabungan=st.accs.filter(a=>a.isSpending===false);
+    const balP=pribadi.reduce((s,a)=>s+accBal(a.id),0);
+    const balK=keluarga.reduce((s,a)=>s+accBal(a.id),0);
+    const balT=tabungan.reduce((s,a)=>s+accBal(a.id),0);
+    const hasGrp=pribadi.length>0||keluarga.length>0;
+    grpSection.innerHTML=hasGrp?`
+      ${pribadi.length?`<div class="acc-group-card pribadi">
+        <div class="acc-group-row"><span class="acc-group-name">👤 Dana Pribadi</span><span class="acc-group-bal">${fmtRp(balP)}</span></div>
+        <div class="acc-group-sub">${pribadi.map(a=>a.name).join(', ')}</div>
+      </div>`:''}
+      ${keluarga.length?`<div class="acc-group-card keluarga">
+        <div class="acc-group-row"><span class="acc-group-name">👨‍👩‍👧‍👦 Dana Keluarga</span><span class="acc-group-bal">${fmtRp(balK)}</span></div>
+        <div class="acc-group-sub">${keluarga.map(a=>a.name).join(', ')}</div>
+      </div>`:''}
+      ${tabungan.length?`<div class="acc-group-card tabungan">
+        <div class="acc-group-row"><span class="acc-group-name">📒 Tabungan</span><span class="acc-group-bal">${fmtRp(balT)}</span></div>
+        <div class="acc-group-sub">${tabungan.map(a=>a.name).join(', ')}</div>
+      </div>`:''}
+    `:'';
+  }
   // Chips
   const ce=document.getElementById('acc-chips');
   if(!st.accs.length){ce.innerHTML=`<div class="acc-chip acc-chip-add" onclick="openAccModal()"><span>+</span><p>Tambah Akun</p></div>`;}
   else{ce.innerHTML=st.accs.map(a=>{
     const bal=accBal(a.id);const t=ACC_TYPES[a.type]||{em:'💰'};
     const sv=a.isSpending===false;
+    const grpLabel=sv?'Tabungan':(a.group==='pribadi'?'Pribadi':'Keluarga');
+    const grpBadgeClass=sv?'acc-badge-saving':a.group==='pribadi'?'acc-badge-spending':'acc-badge-saving';
     return`<div class="acc-chip${sv?' saving-chip':''}" onclick="openAccDetail('${a.id}')">
       <div class="acc-chip-ico">${t.em}</div>
       <div class="acc-chip-name">${a.name}</div>
       <div class="acc-chip-bal">${fmtRp(bal)}</div>
-      <div class="acc-badge ${sv?'acc-badge-saving':'acc-badge-spending'}">${sv?'Tabungan':'Harian'}</div>
+      <div class="acc-badge ${grpBadgeClass}">${grpLabel}</div>
     </div>`;
   }).join('')+`<div class="acc-chip acc-chip-add" onclick="openAccModal()"><span>+</span><p>Tambah</p></div>`;}
   // Goals preview
@@ -1045,22 +1163,35 @@ function renderCats(){
 }
 function selCat(id){st.cat=id;renderCats()}
 function renderAccFromGrid(){
+  const sel=document.getElementById('acc-from-sel');
+  if(!sel)return;
   if(!st.accs.length){document.getElementById('acc-from-section').style.display='none';return;}
   document.getElementById('acc-from-section').style.display='block';
-  document.getElementById('acc-from-grid').innerHTML=st.accs.map(a=>{
-    const sv=a.isSpending===false,dis=st.type!=='transfer'&&sv;
-    return`<div class="acc-sel-item${st.selAccFrom===a.id?' sel':''}" onclick="${dis?`showToast('Akun tabungan tidak bisa digunakan')`:``}${!dis?`selAccFrom('${a.id}')`:''}" style="${dis?'opacity:.4;cursor:not-allowed':''}">
-      <div class="acc-sel-ico">${(ACC_TYPES[a.type]||{em:'💰'}).em}</div>
-      <div class="acc-sel-name">${a.name}${sv?' 📒':''}</div></div>`;
+  // Untuk expense/income: hanya akun harian. Transfer: semua
+  const eligible=st.type==='transfer'?st.accs:st.accs.filter(a=>a.isSpending!==false);
+  sel.innerHTML=eligible.map(a=>{
+    const t=ACC_TYPES[a.type]||{em:'💰'};
+    return`<option value="${a.id}" ${st.selAccFrom===a.id?'selected':''}>${t.em} ${a.name} — ${fmtRp(accBal(a.id))}</option>`;
   }).join('');
+  if(!st.selAccFrom&&eligible.length)st.selAccFrom=eligible[0].id;
+  sel.value=st.selAccFrom||'';
+  sel.onchange=e=>{st.selAccFrom=e.target.value;renderAccToGrid();};
 }
 function renderAccToGrid(){
+  const sel=document.getElementById('acc-to-sel');
+  if(!sel)return;
   const others=st.accs.filter(a=>a.id!==st.selAccFrom);
-  if(!others.length){document.getElementById('acc-to-grid').innerHTML='<div style="font-size:12px;color:var(--gray-400)">Tambah minimal 2 akun untuk transfer.</div>';return;}
-  document.getElementById('acc-to-grid').innerHTML=others.map(a=>`<div class="acc-sel-item${st.selAccTo===a.id?' sel':''}" onclick="selAccTo('${a.id}')"><div class="acc-sel-ico">${(ACC_TYPES[a.type]||{em:'💰'}).em}</div><div class="acc-sel-name">${a.name}</div></div>`).join('');
+  if(!others.length){sel.innerHTML='<option>Tambah minimal 2 akun</option>';return;}
+  sel.innerHTML=others.map(a=>{
+    const t=ACC_TYPES[a.type]||{em:'💰'};
+    return`<option value="${a.id}" ${st.selAccTo===a.id?'selected':''}>${t.em} ${a.name} — ${fmtRp(accBal(a.id))}</option>`;
+  }).join('');
+  if(!st.selAccTo&&others.length)st.selAccTo=others[0].id;
+  sel.value=st.selAccTo||'';
+  sel.onchange=e=>{st.selAccTo=e.target.value;};
 }
-function selAccFrom(id){st.selAccFrom=id;if(st.selAccTo===id)st.selAccTo=null;renderAccFromGrid();renderAccToGrid();}
-function selAccTo(id){st.selAccTo=id;renderAccToGrid();}
+function selAccFrom(id){st.selAccFrom=id;renderAccFromGrid();renderAccToGrid();}
+function selAccTo(id){st.selAccTo=id;}
 function saveTrx(){
   const amt=parseAmt(document.getElementById('inp-amt').dataset.raw||document.getElementById('inp-amt').value);
   const note=document.getElementById('inp-note').value.trim();
@@ -1077,7 +1208,7 @@ function saveTrx(){
 }
 
 // ── ACCOUNTS ──
-let accKindSel='spending';
+let accKindSel='spending',accGroupSel='keluarga';
 function setAccKind(kind){
   accKindSel=kind;
   document.getElementById('acc-kind-spending').className='acc-type-card'+(kind==='spending'?' sel-spending':'');
@@ -1085,18 +1216,30 @@ function setAccKind(kind){
   const sel=document.getElementById('acc-type');
   if(kind==='saving'&&['cash','bank','ewallet'].includes(sel.value))sel.value='savings';
   if(kind==='spending'&&['savings','investment','emergency'].includes(sel.value))sel.value='bank';
+  // Sembunyikan pilihan grup jika tabungan
+  document.getElementById('acc-group-section').style.display=kind==='saving'?'none':'block';
+}
+function setAccGroup(g){
+  accGroupSel=g;
+  ['pribadi','keluarga'].forEach(x=>{
+    const el=document.getElementById('grp-'+x);
+    el.className='group-btn'+(g===x?' '+x:'');
+  });
 }
 function openAccModal(){
   document.getElementById('acc-name').value='';document.getElementById('acc-bal').value='';
   document.getElementById('acc-bal').dataset.raw='';document.getElementById('acc-type').value='cash';
-  accKindSel='spending';setAccKind('spending');openM('m-acc');
+  accKindSel='spending';accGroupSel='keluarga';
+  setAccKind('spending');setAccGroup('keluarga');openM('m-acc');
 }
 function saveAcc(){
   const name=document.getElementById('acc-name').value.trim();
   const type=document.getElementById('acc-type').value;
   const initial=parseAmt(document.getElementById('acc-bal').dataset.raw||document.getElementById('acc-bal').value);
   if(!name){showToast('Masukkan nama akun');return}
-  st.accs.push({id:Date.now().toString(),name,type,initial,isSpending:accKindSel==='spending',created_at:new Date().toISOString()});
+  const isSpending=accKindSel==='spending';
+  const group=isSpending?accGroupSel:'tabungan';
+  st.accs.push({id:Date.now().toString(),name,type,initial,isSpending,group,created_at:new Date().toISOString()});
   saveAll();closeM('m-acc');renderAll();showToast('Akun ditambahkan ✓');
 }
 function openAccDetail(id){
@@ -1104,17 +1247,41 @@ function openAccDetail(id){
   const bal=accBal(id);const t=ACC_TYPES[a.type]||{em:'💰',label:'Akun'};
   const sv=a.isSpending===false;
   const hasTrx=st.trxs.some(t=>t.accId===a.id||t.accToId===a.id);
+  // Riwayat transaksi per akun (rekening koran)
+  const accTrxs=st.trxs.filter(t=>t.accId===id||t.accToId===id)
+    .sort((a,b)=>new Date(a.date)-new Date(b.date));
+  let runBal=a.initial||0;
+  const rekeningRows=accTrxs.map(t=>{
+    let debit=0,kredit=0,label='',cat='';
+    if(t.type==='income'&&t.accId===id){kredit=t.amount;label=t.note||getCat('income',t.category).nm;cat='inc';}
+    else if(t.type==='expense'&&t.accId===id){debit=t.amount;label=t.note||getCat('expense',t.category).nm;cat='exp';}
+    else if(t.type==='transfer'&&t.accId===id){debit=t.amount;label='Transfer ke '+( getAcc(t.accToId)?.name||'?');cat='exp';}
+    else if(t.type==='transfer'&&t.accToId===id){kredit=t.amount;label='Transfer dari '+(getAcc(t.accId)?.name||'?');cat='inc';}
+    runBal+=kredit-debit;
+    return`<div class="acc-trx-row">
+      <div class="acc-trx-date">${t.date.slice(5)}</div>
+      <div class="acc-trx-info"><div class="acc-trx-name">${label}</div></div>
+      <div>
+        <div class="acc-trx-amt" style="color:${cat==='inc'?'var(--green)':'var(--red)'}">${cat==='inc'?'+':'-'}${fmtRp(debit||kredit)}</div>
+        <div class="acc-trx-saldo">${fmtRp(runBal)}</div>
+      </div>
+    </div>`;
+  }).join('');
+
   document.getElementById('detail-body').innerHTML=`
-    <div style="text-align:center;padding:6px 0 14px">
-      <div style="font-size:42px;margin-bottom:6px">${t.em}</div>
-      <div style="font-size:16px;font-weight:700;color:var(--gray-900)" id="acc-detail-name">${a.name}</div>
-      <div style="margin-top:4px"><span class="acc-badge ${sv?'acc-badge-saving':'acc-badge-spending'}">${sv?'📒 Akun Tabungan':'💼 Akun Harian'}</span></div>
-      <div style="font-size:22px;font-weight:700;font-family:var(--mono);color:${sv?'var(--green)':'var(--blue-mid)'};margin-top:8px">${fmtRp(bal)}</div>
+    <div style="text-align:center;padding:6px 0 12px">
+      <div style="font-size:36px;margin-bottom:4px">${t.em}</div>
+      <div style="font-size:15px;font-weight:700;color:var(--gray-900)" id="acc-detail-name">${a.name}</div>
+      <div style="margin-top:4px"><span class="acc-badge ${sv?'acc-badge-saving':'acc-badge-spending'}">${sv?'📒 Tabungan':'💼 Harian'}</span>${a.group?`<span class="acc-badge acc-badge-spending" style="margin-left:4px">${a.group==='pribadi'?'👤 Pribadi':'👨‍👩‍👧‍👦 Keluarga'}</span>`:''}</div>
+      <div style="font-size:22px;font-weight:700;font-family:var(--mono);color:${sv?'var(--green)':'var(--blue-mid)'};margin-top:6px">${fmtRp(bal)}</div>
     </div>
-    <div class="dinfo">
+    <div class="dinfo" style="margin-bottom:10px">
       <div class="drow"><span class="drow-lbl">Saldo Awal</span><span class="drow-val">${fmtRp(a.initial||0)}</span></div>
-      <div class="drow"><span class="drow-lbl">Jenis</span><span class="drow-val">${sv?'Tidak masuk saldo harian':'Masuk saldo utama'}</span></div>
-      <div class="drow"><span class="drow-lbl">Ditambahkan</span><span class="drow-val">${fmtDt(a.created_at.split('T')[0])}</span></div>
+      <div class="drow"><span class="drow-lbl">Transaksi</span><span class="drow-val">${accTrxs.length} transaksi</span></div>
+    </div>
+    <div style="font-size:11px;font-weight:700;color:var(--gray-400);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px">Riwayat Transaksi</div>
+    <div style="max-height:220px;overflow-y:auto;background:var(--gray-50);border-radius:var(--r);padding:4px 10px;margin-bottom:12px">
+      ${accTrxs.length?rekeningRows:'<div style="text-align:center;padding:16px;font-size:12px;color:var(--gray-400)">Belum ada transaksi</div>'}
     </div>
     <div id="acc-rename-section" style="display:none;margin-bottom:12px">
       <input class="fi" id="acc-rename-inp" type="text" placeholder="Nama baru akun" style="margin-bottom:8px"/>
@@ -1258,13 +1425,19 @@ function openAllocModal(goalId){
   const pct=g.target>0?Math.min(100,Math.round((g.collected||0)/g.target*100)):0;
   document.getElementById('alloc-goal-info').innerHTML=`<div style="display:flex;align-items:center;gap:10px"><div style="font-size:28px">${g.emoji||'🎯'}</div><div><div style="font-size:13px;font-weight:700">${g.name}</div><div style="font-size:11px;color:var(--gray-400)">${fmtRp(g.collected||0)} / ${fmtRp(g.target)}</div><div class="alloc-bar"><div class="alloc-fill" style="width:${pct}%"></div></div></div></div>`;
   document.getElementById('alloc-amt').value='';document.getElementById('alloc-amt').dataset.raw='';
-  document.getElementById('alloc-acc-grid').innerHTML=st.accs.length?st.accs.map(a=>`<div class="acc-sel-item${st.selAllocAcc===a.id?' sel':''}" onclick="selAllocAcc('${a.id}')"><div class="acc-sel-ico">${(ACC_TYPES[a.type]||{em:'💰'}).em}</div><div class="acc-sel-name">${a.name}</div></div>`).join(''):'<div style="font-size:12px;color:var(--gray-400)">Tambah akun dulu.</div>';
+  const allocSel=document.getElementById('alloc-acc-sel');
+  if(allocSel){
+    allocSel.innerHTML=st.accs.map(a=>{const t=ACC_TYPES[a.type]||{em:'💰'};return`<option value="${a.id}">${t.em} ${a.name} — ${fmtRp(accBal(a.id))}</option>`;}).join('');
+    if(st.accs.length)st.selAllocAcc=st.accs[0].id;
+  }
   openM('m-alloc');
 }
 function selAllocAcc(id){st.selAllocAcc=id;document.getElementById('alloc-acc-grid').innerHTML=st.accs.map(a=>`<div class="acc-sel-item${st.selAllocAcc===a.id?' sel':''}" onclick="selAllocAcc('${a.id}')"><div class="acc-sel-ico">${(ACC_TYPES[a.type]||{em:'💰'}).em}</div><div class="acc-sel-name">${a.name}</div></div>`).join('');}
 function saveAlloc(){
   const amt=parseAmt(document.getElementById('alloc-amt').dataset.raw||document.getElementById('alloc-amt').value);
   if(!amt){showToast('Masukkan jumlah alokasi');return}
+  const selEl=document.getElementById('alloc-acc-sel');
+  if(selEl)st.selAllocAcc=selEl.value;
   const idx=st.goals.findIndex(g=>g.id===st.allocGoalId);if(idx<0)return;
   st.goals[idx].collected=(st.goals[idx].collected||0)+amt;st.goals[idx].updated_at=new Date().toISOString();
   saveAll();closeM('m-alloc');renderAll();
@@ -1497,7 +1670,39 @@ function buildKategori(){
       <div style="flex:1"><div style="display:flex;justify-content:space-between;font-size:12px;font-weight:600;margin-bottom:3px"><span>${cat.nm}</span><span style="font-family:var(--mono)">${fmtRp(amt)}</span></div>
       <div style="height:5px;background:var(--gray-200);border-radius:3px;overflow:hidden"><div style="width:${pct}%;height:100%;background:var(--blue-mid);opacity:.7;border-radius:3px"></div></div></div>
       <div style="font-size:11px;font-weight:700;color:var(--gray-500);width:32px;text-align:right">${pct}%</div></div>`;}).join('');
-  return`<div class="chart-wrap"><div class="chart-title">Distribusi Pengeluaran</div><div class="pie-wrap">${pie}${legend}</div></div><div class="chart-wrap"><div class="chart-title">Detail Kategori</div>${detail}</div>`;
+  // Drill-down: klik kategori → rincian transaksi
+  const drillDown=sorted.map(([catId,amt])=>{
+    const cat=getCat('expense',catId);const pct=Math.round(amt/total*100);
+    const catTrxs=trxs.filter(t=>t.category===catId).sort((a,b)=>b.amount-a.amount);
+    const avg=catTrxs.length?Math.round(amt/catTrxs.length):0;
+    const biggest=catTrxs[0];
+    return`<div class="cat-drilldown">
+      <div class="cat-drill-header" onclick="toggleDrill('drill-${catId}','chev-${catId}')">
+        <div class="cat-drill-ico" style="background:${cat.bg}">${cat.em}</div>
+        <div class="cat-drill-name">${cat.nm}</div>
+        <div class="cat-drill-info">
+          <div class="cat-drill-amt">${fmtRp(amt)}</div>
+          <div class="cat-drill-pct">${pct}% · ${catTrxs.length} transaksi</div>
+        </div>
+        <div class="cat-drill-chevron" id="chev-${catId}">▼</div>
+      </div>
+      <div class="cat-drill-bar"><div class="cat-drill-fill" style="width:${pct}%"></div></div>
+      <div class="cat-drill-body" id="drill-${catId}">
+        <div class="cat-drill-summary">
+          <span>Rata-rata: ${fmtRp(avg)}</span>
+          ${biggest?`<span>Terbesar: ${fmtRp(biggest.amount)}</span>`:''}
+        </div>
+        ${catTrxs.map(t=>`<div class="cat-drill-trx">
+          <div class="cat-drill-trx-date">${fmtDt(t.date)}</div>
+          <div class="cat-drill-trx-note">${t.note||cat.nm}</div>
+          <div class="cat-drill-trx-amt">${fmtRp(t.amount)}</div>
+        </div>`).join('')}
+      </div>
+    </div>`;
+  }).join('');
+  return`<div class="chart-wrap"><div class="chart-title">Distribusi Pengeluaran</div><div class="pie-wrap">${pie}${legend}</div></div>
+  <div style="margin-bottom:6px;font-size:12px;color:var(--gray-500)">Ketuk kategori untuk lihat rincian transaksi</div>
+  ${drillDown}`;
 }
 function buildTren(){
   const months=[];for(let i=5;i>=0;i--){let m=lapVM-i,y=lapVY;if(m<0){m+=12;y--;}const tr=lapMonthTrxs(m,y);months.push({label:MONTHS[m].slice(0,3),inc:tr.filter(t=>t.type==='income').reduce((a,t)=>a+t.amount,0),exp:tr.filter(t=>t.type==='expense').reduce((a,t)=>a+t.amount,0)});}
@@ -1612,7 +1817,7 @@ function exportPDF(){
   <div class="section"><h2>Pengeluaran per Kategori</h2><table><thead><tr><th>Kategori</th><th style="text-align:right">Total</th><th style="text-align:right">%</th></tr></thead><tbody>${catRows||'<tr><td colspan="3" style="text-align:center;color:#999">Tidak ada</td></tr>'}</tbody></table></div>
   <div class="section"><h2>Tren 6 Bulan</h2><table><thead><tr><th>Bulan</th><th style="text-align:right">Pemasukan</th><th style="text-align:right">Pengeluaran</th><th style="text-align:right">Net</th></tr></thead><tbody>${trendRows.join('')}</tbody></table></div>
   <div class="section"><h2>Transaksi — ${bulan}</h2><table><thead><tr><th>Tanggal</th><th>Tipe</th><th>Kategori</th><th>Catatan</th><th style="text-align:right">Jumlah</th></tr></thead><tbody>${trxRows||'<tr><td colspan="5" style="text-align:center;color:#999">Tidak ada</td></tr>'}</tbody></table></div>
-  <div class="footer">Dompet App v5.1 — PWA Ready</div>
+  <div class="footer">Dompet App v6.0</div>
   <script>window.onload=function(){window.print()}<\/script></body></html>`;
   const blob=new Blob([html],{type:'text/html;charset=utf-8'});const url=URL.createObjectURL(blob);
   window.open(url,'_blank');setTimeout(()=>URL.revokeObjectURL(url),5000);showToast('Membuka jendela cetak...');
@@ -1666,10 +1871,10 @@ function confirmLoadDemo(){
 }
 function loadDemoData(){
   const accs=[
-    {id:'acc1',name:'BCA',type:'bank',initial:5000000,isSpending:true,created_at:'2024-12-01T00:00:00.000Z'},
-    {id:'acc2',name:'Tunai',type:'cash',initial:1000000,isSpending:true,created_at:'2024-12-01T00:00:00.000Z'},
-    {id:'acc3',name:'Dana',type:'ewallet',initial:500000,isSpending:true,created_at:'2024-12-01T00:00:00.000Z'},
-    {id:'acc4',name:'Tabungan BCA',type:'savings',initial:15000000,isSpending:false,created_at:'2024-12-01T00:00:00.000Z'},
+    {id:'acc1',name:'BCA',type:'bank',initial:5000000,isSpending:true,group:'keluarga',created_at:'2024-12-01T00:00:00.000Z'},
+    {id:'acc2',name:'Tunai',type:'cash',initial:1000000,isSpending:true,group:'keluarga',created_at:'2024-12-01T00:00:00.000Z'},
+    {id:'acc3',name:'Dana',type:'ewallet',initial:500000,isSpending:true,group:'pribadi',created_at:'2024-12-01T00:00:00.000Z'},
+    {id:'acc4',name:'Tabungan BCA',type:'savings',initial:15000000,isSpending:false,group:'tabungan',created_at:'2024-12-01T00:00:00.000Z'},
   ];
   const trxs=[];let tid=1000;
   function mkDate(y,m,d){return`${y}-${String(m+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;}
@@ -1830,6 +2035,95 @@ function renderInstallBtn(){
       <div class="set-arr">›</div>
     </div>`;
   }
+}
+
+
+// ── FITUR 5: DRILL DOWN TOGGLE ──
+function toggleDrill(bodyId,chevId){
+  const body=document.getElementById(bodyId);
+  const chev=document.getElementById(chevId);
+  if(!body)return;
+  const open=body.classList.toggle('open');
+  if(chev)chev.classList.toggle('open',open);
+}
+
+// ── FITUR 3: KALENDER ──
+let calVM=new Date().getMonth(),calVY=new Date().getFullYear();
+const DAY_NAMES=['Min','Sen','Sel','Rab','Kam','Jum','Sab'];
+
+function chCalMonth(d){calVM+=d;if(calVM<0){calVM=11;calVY--;}if(calVM>11){calVM=0;calVY++;}renderKalender();}
+
+function renderKalender(){
+  document.getElementById('cal-month-lbl').textContent=MONTHS[calVM]+' '+calVY;
+  // Header hari
+  document.getElementById('cal-header').innerHTML=DAY_NAMES.map(d=>`<div class="cal-day-name">${d}</div>`).join('');
+  // Hitung data transaksi per hari
+  const dayData={};
+  st.trxs.forEach(t=>{
+    const dt=new Date(t.date+'T00:00:00');
+    if(dt.getMonth()===calVM&&dt.getFullYear()===calVY){
+      const k=t.date;
+      if(!dayData[k])dayData[k]={inc:0,exp:0,trxs:[]};
+      if(t.type==='income')dayData[k].inc+=t.amount;
+      if(t.type==='expense')dayData[k].exp+=t.amount;
+      dayData[k].trxs.push(t);
+    }
+  });
+  // Build kalender
+  const firstDay=new Date(calVY,calVM,1).getDay();
+  const daysInMonth=new Date(calVY,calVM+1,0).getDate();
+  const daysInPrev=new Date(calVY,calVM,0).getDate();
+  const todayStr=today();
+  let cells='';
+  // Hari bulan lalu
+  for(let i=firstDay-1;i>=0;i--){
+    cells+=`<div class="cal-cell other-month"><div class="cal-date">${daysInPrev-i}</div></div>`;
+  }
+  // Hari bulan ini
+  for(let d=1;d<=daysInMonth;d++){
+    const dateStr=`${calVY}-${String(calVM+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
+    const data=dayData[dateStr];
+    const isToday=dateStr===todayStr;
+    cells+=`<div class="cal-cell${isToday?' today':''}${data?' has-data':''}" onclick="showCalDetail('${dateStr}')">
+      <div class="cal-date">${d}</div>
+      ${data&&data.inc>0?`<div class="cal-inc">+${fmtRpShort(data.inc)}</div>`:''}
+      ${data&&data.exp>0?`<div class="cal-exp">-${fmtRpShort(data.exp)}</div>`:''}
+      ${data?`<div class="cal-dot"></div>`:''}
+    </div>`;
+  }
+  // Hari bulan depan
+  const remaining=(7-((firstDay+daysInMonth)%7))%7;
+  for(let i=1;i<=remaining;i++){
+    cells+=`<div class="cal-cell other-month"><div class="cal-date">${i}</div></div>`;
+  }
+  document.getElementById('cal-grid').innerHTML=cells;
+  document.getElementById('cal-detail').innerHTML='';
+}
+
+function fmtRpShort(n){
+  if(n>=1000000)return(n/1000000).toFixed(1).replace('.0','')+'jt';
+  if(n>=1000)return(n/1000).toFixed(0)+'rb';
+  return n;
+}
+
+function showCalDetail(dateStr){
+  const trxs=st.trxs.filter(t=>t.date===dateStr);
+  const inc=trxs.filter(t=>t.type==='income').reduce((a,t)=>a+t.amount,0);
+  const exp=trxs.filter(t=>t.type==='expense').reduce((a,t)=>a+t.amount,0);
+  if(!trxs.length){document.getElementById('cal-detail').innerHTML='';return;}
+  const el=document.getElementById('cal-detail');
+  el.innerHTML=`
+    <div style="background:var(--white);border:1px solid var(--gray-200);border-radius:var(--rl);overflow:hidden;box-shadow:var(--sh)">
+      <div style="padding:10px 14px;border-bottom:1px solid var(--gray-100);display:flex;justify-content:space-between;align-items:center">
+        <div style="font-size:13px;font-weight:700;color:var(--gray-900)">${fmtDt(dateStr)}</div>
+        <div style="display:flex;gap:12px">
+          ${inc>0?`<span style="font-size:12px;font-weight:700;color:var(--green);font-family:var(--mono)">+${fmtRp(inc)}</span>`:''}
+          ${exp>0?`<span style="font-size:12px;font-weight:700;color:var(--red);font-family:var(--mono)">-${fmtRp(exp)}</span>`:''}
+        </div>
+      </div>
+      <div style="padding:4px 0">${trxs.map(t=>trxRowHTML(t)).join('')}</div>
+    </div>`;
+  el.scrollIntoView({behavior:'smooth',block:'nearest'});
 }
 
 // ── INIT ──
